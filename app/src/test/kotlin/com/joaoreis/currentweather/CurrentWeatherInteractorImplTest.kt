@@ -93,16 +93,6 @@ class CurrentWeatherInteractorImplTest {
     fun `Given there is no local weather info When weather is loaded And weather gateway is not working And location is obtained Then should emit ERROR`() = runBlockingTest {
         val testDispatcher = TestCoroutineDispatcher()
 
-        val weather = Weather(
-            "Clear",
-            22.toDouble(),
-            23.toDouble(),
-            10.toDouble(),
-            25.toDouble(),
-            1000,
-            99
-        )
-
         val weatherManager = CurrentWeatherInteractorImpl(
             dispatcher = testDispatcher,
             weatherGateway = FakeWeatherGateway(),

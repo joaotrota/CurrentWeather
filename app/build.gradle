@@ -36,8 +36,13 @@ android {
         test.java.srcDirs += 'src/test/kotlin'
         test.java.srcDirs += 'src/debug/kotlin'
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
+        androidTest.java.srcDirs += 'src/debug/kotlin'
     }
 
+    packagingOptions {
+        exclude 'META-INF/AL2.0'
+        exclude 'META-INF/LGPL2.1'
+    }
 }
 
 dependencies {
@@ -48,6 +53,8 @@ dependencies {
     implementation "com.google.android.material:material:$material_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
     implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "androidx.work:work-runtime-ktx:$work_manager_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     testImplementation "junit:junit:$junit_version"
     testImplementation "androidx.test.ext:junit:$junit_ext_version"
     testImplementation "androidx.test:core:$core_test_version"
@@ -58,4 +65,9 @@ dependencies {
     testImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_version"
     androidTestImplementation "androidx.test.ext:junit:$junit_ext_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "androidx.work:work-testing:$work_manager_version"
+    androidTestImplementation "androidx.arch.core:core-testing:$arch_core_testing_version"
+    androidTestImplementation "app.cash.turbine:turbine:$turbine_version"
+    androidTestImplementation "io.mockk:mockk-android:$mockk_version"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
 }
