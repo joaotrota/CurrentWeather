@@ -23,7 +23,7 @@ The project was implemented with a "feature per package" strategy. The **current
 
 The implementation was done using TDD and it contains 3 types of tests across all the layers:
   - Unit tests which test the isolated behaviour of each small component.
-  - Integration tests which were used to test the integration of WorkManager 
+  - Integration tests which were used to test the integration of WorkManager. The data layer was also tested with integration tests: I used both Robolectric and Mockwebserver to perform these tests.
   - Acceptance tests, which are large integration tests that test the various acceptance criteria of the feature. These type of tests are close to end-to-end tests, with the difference being that these tests don't use real networking. These are inspired on what Martin Fowler calls Component Tests: https://martinfowler.com/bliki/ComponentTest.html
   
 Another adopted strategy was to limit the use of Mocks and Spies in favor of Fakes as a design strategy to help keep the tests as decoupled of the implementation as possible. 
