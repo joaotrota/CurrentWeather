@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CurrentWeather</string>
+    <string name="current_temperature">Current temperature: %1$s ºC</string>
+    <string name="feels_like">Feels like: %1$s ºC</string>
+    <string name="minimum_temperature">Min. temperature: %1$s ºC</string>
+    <string name="maximum_temperature">Max. temperature: %1$s ºC</string>
+    <string name="pressure">Pressure: %1$s</string>
+    <string name="humidity">Humidity: %1$s %%</string>
+    <string name="weather_load_error">Error loading the weather</string>
 </resources>

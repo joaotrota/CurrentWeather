@@ -14,7 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.joaoreis.currentweather.CustomTestRunner"
     }
 
     buildTypes {
@@ -43,6 +43,12 @@ android {
         exclude 'META-INF/AL2.0'
         exclude 'META-INF/LGPL2.1'
     }
+
+    buildFeatures {
+        viewBinding {
+            enabled = true
+        }
+    }
 }
 
 dependencies {
@@ -55,6 +61,7 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
     implementation "androidx.work:work-runtime-ktx:$work_manager_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "com.google.android.gms:play-services-location:$play_services_location_version"
     testImplementation "junit:junit:$junit_version"
     testImplementation "androidx.test.ext:junit:$junit_ext_version"
     testImplementation "androidx.test:core:$core_test_version"
@@ -70,4 +77,7 @@ dependencies {
     androidTestImplementation "app.cash.turbine:turbine:$turbine_version"
     androidTestImplementation "io.mockk:mockk-android:$mockk_version"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_version"
+    androidTestImplementation "androidx.test:runner:$test_runner_version"
+    androidTestImplementation "androidx.test:rules:$test_rules_version"
 }
