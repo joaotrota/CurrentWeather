@@ -2,7 +2,7 @@
 
 ## Architectural Decisions
 
-- The implementation of the project follows Clean Architecture principles. In the Domain we have CurrentWeatherInteractor which is responsible for the management of all the current weather use cases. This interactor is implemented in a reactive way, as it exposes a stream of Weather objects. Whenever there was any action that changed the state of the domain entity the interactor emits a new entity.
+- The implementation of the project follows Clean Architecture principles. In the Domain we have CurrentWeatherInteractor which is responsible for the management of all the current weather use cases. This interactor is implemented in a reactive way, as it exposes a stream of Weather objects which is the domain entity. Whenever there was any action that changed the state of the domain entity the interactor emits a new entity.
 
 - Clean Architecture alongside TDD allowed me to implement most of the application without having to implement any UI. I started by implementing the domain layer, by faking the data layer implementations. Then I proceeded to the data and presentation layers, again faking any dependencies needed and finally in the last commit UI was implemented.  
 
@@ -35,6 +35,7 @@ Since this was a very small project i decided to implement manual dependency inj
 
 ### Possible improvements
 
+- Constants like the base url and API key are created in the WeatherApplication class. This could be improved by extracting these constants for example to resources
 - Improve the way permissions are handled. Right now it keeps asking for permissions until the user accepts!
 - Since there is no subscription to location updates, if the Location Service doesn't have a last known location we will not be able to obtain it. This could be improved by subscribing to location updates!
 - Improve the UI. Since there was no need for a fancy UI i simply did not implement one, but if the app was to go into production this would be needed.
